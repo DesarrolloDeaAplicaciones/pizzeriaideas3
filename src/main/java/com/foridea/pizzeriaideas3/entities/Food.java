@@ -13,6 +13,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity 
 @Getter
+
 @AllArgsConstructor
 public class Food {
 
