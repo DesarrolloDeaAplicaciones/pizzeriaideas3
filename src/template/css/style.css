@@ -51,7 +51,7 @@ img{
 
 .section-pizza{
 
-    margin-top: 85px;
+    margin-top: 102px;
 }
 .pizza-h2{
 
@@ -66,6 +66,7 @@ img{
     overflow-y: hidden;
     overflow-x: scroll;
 }
+
 
 
 .container-section{
@@ -130,5 +131,5 @@ img{
     border-radius: 12px;
     background-color: rgba(255, 136, 0, 0.932);
     color:#fff;
-    padding-top: 4px;
+    padding-top: 5px;
 }
