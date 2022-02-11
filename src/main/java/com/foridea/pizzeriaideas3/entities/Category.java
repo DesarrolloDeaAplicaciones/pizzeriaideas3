@@ -21,6 +21,7 @@ public class Category {
     private String id;   
     @Column(unique = true, nullable = false) //Obligatory field
     private String name;
-    private Boolean condition; //default true
+    private String description;
+    private Boolean status; //default true
     
 }

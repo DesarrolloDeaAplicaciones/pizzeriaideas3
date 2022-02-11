@@ -2,7 +2,6 @@
 package com.foridea.pizzeriaideas3.controllers;
 
 import com.foridea.pizzeriaideas3.entities.Category;
-import com.foridea.pizzeriaideas3.entities.Food;
 import com.foridea.pizzeriaideas3.exceptions.ErrorService;
 import com.foridea.pizzeriaideas3.services.CategoryService;
 import java.util.List;

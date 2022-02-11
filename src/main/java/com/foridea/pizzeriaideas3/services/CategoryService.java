@@ -37,14 +37,15 @@ public class CategoryService {
     }
 
     @Transactional
-    public List<Category> listCategories() {
-        //lista todos devuelve lista de categoria
-        return null;
-
+    public List<Category> listCategories() throws ErrorService {
+      List<Category> categories = categoryRepository.findAll() ;
+            return categories;       
+    }
+    
+    public void validateData(String name) throws ErrorService {
+        if (name == null || name.isEmpty()) {
+            throw new ErrorService("Debes ingresar un nombre valido");
+        }
+    }
      
-    }
-
-    public void validateData()  {
-       //validar datos que ingresan
-    }
 }
