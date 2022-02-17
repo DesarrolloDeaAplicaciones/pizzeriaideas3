@@ -1,8 +1,9 @@
+
 package com.foridea.pizzeriaideas3.services;
 
-import org.springframework.stereotype.Service;
+import com.foridea.pizzeriaideas3.entities.Category;
 
-@Service
-public class CategoryService {
+
+public interface CategoryService extends BaseService<Category, String>{
     
 }

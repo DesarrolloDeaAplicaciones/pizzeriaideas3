@@ -3,18 +3,21 @@ package com.foridea.pizzeriaideas3.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import org.hibernate.annotations.GenericGenerator;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 @Entity
-public class Category {
-    @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid",strategy = "uuid2")
-    private String id;   
-    @Column(unique = true, nullable = false) //Obligatory field
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+public class Category extends Base{    
+   @Column(unique = true, nullable = false) //Obligatory field
     private String name;
-    private Boolean condition; //default true
+    private String description;
+  
     
 }

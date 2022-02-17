@@ -3,22 +3,26 @@ package com.foridea.pizzeriaideas3.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import org.hibernate.annotations.GenericGenerator;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Entity
-public class Food {
- @Id
-  @GeneratedValue(generator = "uuid")
-  @GenericGenerator(name = "uuid",strategy = "uuid2")
-  private String id; 
+
+@Entity 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class Food extends  Base{
+  
   @Column(unique = true, nullable = false)
   private String name; 
   private Double price; 
-  private Integer discount; 
-  private boolean condition;
+  private String description;
+  private Integer discount;  
+  
   @OneToOne()
   private Category category;
     //agregar si ves que necesitamos algo mas
