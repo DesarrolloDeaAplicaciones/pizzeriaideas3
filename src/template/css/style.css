@@ -16,6 +16,7 @@
 
     /** CATALOGOS */
     --catalogo-pizza: rgb(154, 33, 12);
+    --color-etiqueta-white: rgb(255, 255, 255);
     --catalogo-empanada: rgb(100, 48, 17);
     --catalogo-postre: rgb(2, 82, 100);
     --catalogo-bebidas: rgb(144, 28, 49);
@@ -74,6 +75,7 @@ button{
   align-items: center;
   height: 64px;
   background-color: var(--color-narvar);
+  z-index: 1;
 
 }
 
@@ -223,4 +225,120 @@ button{
   text-align: center;
 }
 
-/* .main-section-article{} */
+
+.main-section{
+
+  width: 100%;
+}
+
+.flex{
+
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 97%;
+  margin: 6% auto 0;
+}
+.main-section-article{
+
+  position: relative;
+  width: 249px;
+  height: 319px;
+  margin:2% 3%;
+  text-align: center;
+  background-color: var(--while);
+  border-radius: 20px;
+}
+.main-section-article__contenido{
+
+  height: 36px; 
+  line-height: 30px;
+  margin: 0;
+  border-top-right-radius: 20px;
+  color:var(--color-etiqueta-white);
+ 
+}
+
+.color-contenido-pizza{
+
+  width: 84px;
+  background-color: var(--catalogo-pizza);
+  transform: rotate(-90deg) translate(-27%,-60%);
+
+}
+
+.color-contenido-empanada{
+
+  width: 129px;
+  background-color: var(--catalogo-empanada);
+  transform: rotate(-90deg) translate(-38%,-123%);
+
+}
+
+
+.color-contenido-bebidas{
+  width: 84px;
+  background-color: var(--catalogo-bebidas);
+  transform: rotate(-90deg) translate(-27%,-60%);
+
+}
+
+.color-contenido-postres{
+  
+  width: 84px;
+  background-color: var(--catalogo-postre);
+  transform: rotate(-90deg) translate(-27%,-60%);
+
+}
+.main-section-article:hover{
+
+  transform: scale(120%);
+  transition: transform 0.3s ease-in;
+
+}
+
+.article-header{
+
+  position:absolute;
+  top: -5%;
+  left: 0;
+  right: 0;
+
+}
+
+.section-article-footer{
+
+
+  height: 129px;
+  transform: translateY(73%)
+
+}
+.article-footer__sub-subtitle{
+
+  font-weight: 400;
+  font-size: 16px;
+
+}
+
+.article-footer__strong{
+
+  display: inline-block;
+  height: 56px;
+  width: 201px; 
+  font-size: 14px; 
+  line-height: 25px;
+  text-align: center;
+
+}
+
+.article-footer__button{
+
+  height: 36px;
+  width: 138px;
+  border-radius: 10px;
+  color: var(--color-etiqueta-white);
+  background-color: var(--secondary-color);
+  transform: translateY(15%);
+}
+  
+/** ACA TERMINA DE LO SEBA */
