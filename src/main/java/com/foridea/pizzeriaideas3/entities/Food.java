@@ -3,6 +3,7 @@ package com.foridea.pizzeriaideas3.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,5 +26,8 @@ public class Food extends  Base{
   
   @OneToOne()
   private Category category;
-    //agregar si ves que necesitamos algo mas
+  @OneToOne
+///  @JoinColumn(name="imageProfile")
+  private ImageProfile imageProfile;
+  
 }
