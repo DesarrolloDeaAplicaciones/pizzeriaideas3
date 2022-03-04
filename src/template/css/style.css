@@ -154,26 +154,144 @@ button{
   color:var(--while);
 }
 
-.aside{
 
-  position: fixed;
+.aside{
+  position: fixed; 
+  top:0;
+  right: 0;
+  bottom:0;
+  width: 28%;
+  margin-top: 2.8%;
+  background-color: var(--while);
+  z-index: 2;
+  transform: translateX(100%);
+  transition: transform 0.4s ease-in;
+}
+
+.aside-active{
+
+  transform: translateX(0%);
+
+}
+
+
+
+
+.aside-section{
+
+  height: 73%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.aside-subtitulo{
+
+  margin-left: 4%;
+}
+
+
+.aside-section-article{
+
+  margin-top: 5%;
+}
+
+.aside-section-article-header{
+
+  display: flex;
+  
+}
+
+.aside-article-header-container-uno{
+
+  margin: 0 3%;
+}
+
+.aside-section-footer{
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3%;
+}
+
+.aside-footer-container-uno{
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 166px;
+  height: 50px;
+  border: 1px solid var(--black);
+  margin-left: 3%;
+  border-radius: 10px;
+}
+
+.aside-container-uno__button-menos,
+.aside-container-uno__button-mas{
+
+  height: 24px;
+  width: 26px;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.aside-container-uno__button-menos{
+
+  background-image: url('../assets/icons/mdi_trash-can-outline.svg');
+}
+
+.aside-container-uno__button-mas{
+
+  background-image: url('../assets/icons/Plus.svg');
+}
+
+
+.aside-footer-container-dos{
+
+  display: flex;
+  align-items: center;
+  justify-content:space-evenly;
+  width: 188px;
+  height: 50px;
+}
+.aside-footer-container-dos__p{
+
+  font-size: 1.2rem;
+}
+.aside-footer{
+
   display: flex;
   flex-direction: column;
-  justify-content:center;
-  top:0;
-  bottom: 0;
-  right: 0;
-  z-index: 1;
+  width: 100%;
+  padding: 0 10%;
+
 }
 
-.asie-section{
+.aside-footer-container{
 
-  height: 100%;
-  background-color: var(--while);
-  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.aside-footer-container__p,
+.aside-footer-container__p + b{
+
+  font-size: 1.5rem;
 }
 
+.aside-footer__boton{
 
+  height: 52px;
+  width: 100%;
+  margin: 4% auto;
+  font-size: 1.2rem;
+  background-color: var(--main-color);
+  border-radius: 10px;
+  color:var(--color-etiqueta-white);
+
+}
 .main-conatiner-hero__img-hero{
 
   min-inline-size: 100%;
@@ -488,7 +606,7 @@ button{
   height: 112px;
   width: 100%;
   background-color: var(--color-yellow);
-  display: none;
+
   
 }
 
