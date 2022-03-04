@@ -23,8 +23,10 @@
             <div class="container-uno-direcciones">
               
               <p class="container-uno-direcciones__paraffo">Entragar en</p>
+              <div class="f">
+              <button class="container-uno-direcciones__icon"></button>  
 
-              <img src="./assets/icons/map_navar.svg" alt="map icon" class="container-uno-direcciones__icon">
+              <!-- <img src="./assets/icons/map_navar.svg" alt="map icon" class="container-uno-direcciones__icon"> -->
 
               <select name="direcciones" class="container-uno-direcciones__select">
 
@@ -35,8 +37,11 @@
               </select>
 
             </div>
+            </div>
 
           </div>
+
+          <button class="header-boton__despla"></button>
 
           <div class="header-contenedor">
             
@@ -44,7 +49,7 @@
             <input type="search" name="search" id="search" class="heaader-search" placeholder="Buscar productos...">
             
           </div>
-          <button class="heaader-button">0</button>
+          <button class="heaader-button" id="heaader-button">0</button>
 
       </header>
 
@@ -920,7 +925,7 @@
 
       </main>
 
-      <aside class="aside">
+      <aside class="aside" id="aside">
         
         
         <h2 class="aside-subtitulo">Mi carrito</h2>
@@ -970,8 +975,9 @@
 
           </article>
 
+        </section>      
+          
         <hr>
-        </section>
 
         <footer class="aside-footer">
 
@@ -980,7 +986,7 @@
             <p class="aside-footer-container__p">Subtotal:</p>
 
             <b>$1000,00</b>
-            
+
           </div>
           
           <button class="aside-footer__boton">COMPRAR</button>
@@ -1044,11 +1050,11 @@
 
       <button class="button-preguntas"></button>      
 
-      <div class="advertencia">
+      <div class="advertencia" id="advertencia">
 
         <p class="advertencia__parrafo">El pago es solo efectivo y el delivery a cargo de Don Remolo</p>
 
-        <button class="advertencia__boton">OK,ENTENDIDO</button>
+        <button class="advertencia__boton" id="boton">OK,ENTENDIDO</button>
 
       </div>
 
