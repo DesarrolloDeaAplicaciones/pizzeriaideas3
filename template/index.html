@@ -41,14 +41,15 @@
 
           </div>
 
-          <button class="header-boton__despla"></button>
+          <button class="header-boton__despla" id="boton-despla"></button>
 
-          <div class="header-contenedor">
+          <div class="header-contenedor" id="header-contendor-search">
             
             <img src="./assets/icons/Search_Icon.svg" alt="search icono" class="heder-icon-search">
             <input type="search" name="search" id="search" class="heaader-search" placeholder="Buscar productos...">
             
           </div>
+
           <button class="heaader-button" id="heaader-button">0</button>
 
       </header>
@@ -932,8 +933,12 @@
         
           <hr>
         <section class="aside-section">
+
+          <h3 class="aside-section__h3">Su carrito esta vacio</h3>
           
-          <article class="aside-section-article">
+          <p class="aside-section__p">Para seguir comprando, navege por las categorias en el sitio, o busque su producto</p>
+
+   <!--  <article class="aside-section-article">
 
             <header class="aside-section-article-header">
 
@@ -974,22 +979,26 @@
             </footer>
 
           </article>
+ -->
+
 
         </section>      
-          
         <hr>
 
         <footer class="aside-footer">
 
-          <div class="aside-footer-container">
+          <!-- <div class="aside-footer-container">
 
             <p class="aside-footer-container__p">Subtotal:</p>
 
             <b>$1000,00</b>
 
           </div>
-          
-          <button class="aside-footer__boton">COMPRAR</button>
+           -->
+          <!-- <button class="aside-footer__boton">COMPRAR</button> -->
+
+         <button class="aside-footer__button-eligir">ELEGIR PRODUCTOS</button> 
+
         </footer>
 
       </aside>
@@ -1040,7 +1049,7 @@
             </ul>
 
             <div class="footer-container-tres">
-             <input type="search" name="foooter-search" id="foooter-search" class="container-tres__search" placeholder="Escribe tu mail para recibir ofertas">
+             <input type="email" name="foooter-search" id="foooter-search" class="container-tres__search" placeholder="Escribe tu mail para recibir ofertas">
               <button class="contianer-tres__button">SUSCRIBETE</button>
             </div>
           </div>

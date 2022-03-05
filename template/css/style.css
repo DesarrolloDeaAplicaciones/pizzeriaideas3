@@ -134,6 +134,7 @@ button{
 .header-contenedor{
 
   position: relative;
+
   height: 36px;
 }
 
@@ -141,10 +142,10 @@ button{
 .heaader-search{
 
   height: 36px;
-  width: 382px;
+  width: 385px;
   border-radius: 10px;
   border: none;
-  padding-left: 10%;
+  padding-left: 15%;
   border: 1px solid var(--black);
 }
 
@@ -166,6 +167,7 @@ button{
   background-size: cover;
 
 } 
+
 .heaader-button{
   
   inline-size: 6em;
@@ -203,13 +205,14 @@ button{
 
 .aside-section{
 
-  height: 73%;
+  max-height: 73%;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
 .aside-subtitulo{
 
+  font-size: calc(1vw + 0.8em);
   margin-left: 4%;
 }
 
@@ -311,15 +314,43 @@ button{
   width: 100%;
   margin: 4% auto;
   font-size: 1.2rem;
+  
   background-color: var(--main-color);
   border-radius: 10px;
   color:var(--color-etiqueta-white);
 
 }
+.aside-section__h3,
+.aside-section__p{
+
+  margin-left: 3%;
+
+}
+
+.aside-section__h3{
+
+  font-size: calc(1vw + 0.6em);
+}
+.aside-section__p{  
+
+  font-size: calc(1vw + 0.4em);
+
+}
+
+
+.aside-footer__button-eligir{
+
+    height: 3em;
+    width: 100%;
+    color: var(--color-etiqueta-white);
+    background-color: var(--main-color);
+    border-radius: 10px;
+    font-size: calc(1vw + 0.3em);
+}
 .main-conatiner-hero__img-hero{
 
   min-inline-size: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .mian-section-uno{
@@ -408,7 +439,7 @@ button{
   position: relative;
   width: 249px;
   height: 319px;
-  margin:2% 3%;
+  margin: calc(1vw + 2em) 3%;
   text-align: center;
   background-color: var(--while);
   border-radius: 20px;
@@ -659,18 +690,25 @@ button{
 
   .header-contenedor{
 
-    display: none; 
+    width: 50vw;
+    position: absolute;    
     background-color: var(--color-narvar);
+    opacity: 0;
+    visibility: hidden;
     border-radius: 10px;
-    z-index: -999;
+    transform: translate(55%,0%);
+
   
   }
-  
+  .heaader-search{
+
+    width: 100%;
+  }
 
   .input-active{
-
-    display: block;
-    transform: translateY(135%); 
+    opacity: 1;
+    visibility: visible;
+    transform: translate(55%,135%);
     transition: transform .4s ease-in-out;
 
   }
@@ -702,7 +740,11 @@ button{
 
     display:block;  
   }
+  .aside{
 
+    margin-top: calc(1vw + 3em);
+
+  }
 }
 
 /** ACA TERMINA DE LO SEBA */ 

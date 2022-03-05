@@ -32,9 +32,22 @@ const desplazarAside = ($btn,$asd) =>{
 }
 
 
+const desplazaBuscador=($btn,$contSerch)=>{
+
+    const $botonDesplegable = doc.getElementById($btn),
+    $contenedorSearch = doc.getElementById($contSerch);
+
+    $botonDesplegable.addEventListener('click',()=>{
+
+        $contenedorSearch.classList.toggle('input-active');
+
+    });
+
+}
+
 doc.addEventListener('DOMContentLoaded',()=>{
 
     desaparacerAdvertencia('advertencia'); 
     desplazarAside('heaader-button','aside');
-
+    desplazaBuscador('boton-despla','header-contendor-search');
 });
