@@ -1,9 +1,7 @@
 package com.foridea.pizzeriaideas3.controllers;
 
 import com.foridea.pizzeriaideas3.dto.CategoryResponse;
-import com.foridea.pizzeriaideas3.entities.Category;
 import com.foridea.pizzeriaideas3.services.CategoryService;
-import com.foridea.pizzeriaideas3.services.CategoryServiceImpl;
 import com.foridea.pizzeriaideas3.services.FileUploadService;
 import com.foridea.pizzeriaideas3.services.ImageService;
 import java.net.URISyntaxException;
@@ -41,7 +39,7 @@ public class CategoryController  {
         return new ResponseEntity<>(response.getBody(), response.getStatusCode());
     }
 
-    @GetMapping("")
+ @GetMapping("")
     public ResponseEntity<?> findAll() {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findAll());

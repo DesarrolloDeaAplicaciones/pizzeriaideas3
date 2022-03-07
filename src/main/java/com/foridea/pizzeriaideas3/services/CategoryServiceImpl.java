@@ -1,12 +1,15 @@
 package com.foridea.pizzeriaideas3.services;
 
 
+import com.foridea.pizzeriaideas3.dto.CategoryImage;
 import com.foridea.pizzeriaideas3.dto.CategoryResponse;
 import com.foridea.pizzeriaideas3.entities.Category;
 import com.foridea.pizzeriaideas3.entities.ImageProfile;
 import com.foridea.pizzeriaideas3.mapper.CategoryMapper;
 import com.foridea.pizzeriaideas3.repositories.CategoryRepository;
+import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -56,44 +59,32 @@ public class CategoryServiceImpl implements CategoryService {
                 || category.getName().trim().isEmpty()) ? messageFieldsEmpty : null;
     }
 
-//    @Transactional
+    @Transactional
+    @Override
+    public List<CategoryImage> findAll() {
+        try {
+            List<CategoryImage> listResponse = new ArrayList<>();
+            List<Category> entities = categoryRepository.findAll();
+            for (Category entity : entities) {
+                listResponse.add(categoryMapper.categoryImageEntityDto(entity));
+            }
+            return listResponse;
+        } catch (EntityNotFoundException e) {
+            throw new EntityNotFoundException(ERROR_CONECTION);
+        }
+    }
+
+//    @javax.transaction.Transactional
 //    @Override
-//    public List<CategoryImage> findAll() {
-//        try {
-//            List<CategoryImage> listResponse = new ArrayList<>();
-//            List<Category> entities = categoryRepository.findAll();
-//            for (Category entity : entities) {
-//                listResponse.add(categoryMapper.categoryImageEntityDto(entity));
-//            }
-//            return listResponse;
-//        } catch (EntityNotFoundException e) {
-//            throw new EntityNotFoundException(ERROR_CONECTION);
-//        }
+//    public ResponseEntity<?> getProduct() {
+//        ArrayList<Product> listProducts = 
+//        (ArrayList<Product>) productRepository.findAll();
 //
+//        return (listProducts.size() > 0)?
+//        new ResponseEntity<>(constructorGetProducts(listProducts), HttpStatus.OK):
+//        new ResponseEntity<>("No exists products", HttpStatus.NOT_FOUND);
+//        
 //    }
+   
 
-    @Override
-    public List<Category> findAll() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public Category findById(Long id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public Category save(Category entity) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public Category update(Long id, Category entity) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public boolean delete(Long id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
