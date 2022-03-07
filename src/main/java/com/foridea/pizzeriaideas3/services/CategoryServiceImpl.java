@@ -1,15 +1,12 @@
 package com.foridea.pizzeriaideas3.services;
 
-import com.foridea.pizzeriaideas3.dto.CategoryImage;
+
 import com.foridea.pizzeriaideas3.dto.CategoryResponse;
 import com.foridea.pizzeriaideas3.entities.Category;
 import com.foridea.pizzeriaideas3.entities.ImageProfile;
 import com.foridea.pizzeriaideas3.mapper.CategoryMapper;
-import com.foridea.pizzeriaideas3.repositories.BaseRepository;
 import com.foridea.pizzeriaideas3.repositories.CategoryRepository;
-import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,13 +15,8 @@ import org.springframework.transaction.annotation.Transactional;
 //implementacion de servicios Categoria
 
 @Service
-public class CategoryServiceImpl extends BaseServiceImpl<Category, String> implements CategoryService {
-
+public class CategoryServiceImpl implements CategoryService {
    
-
-    public CategoryServiceImpl(BaseRepository<Category, String> baseRepository) {
-        super(baseRepository);
-    }
 
     private static final String ERROR_FIND_ID = "No se econtro la categoria";
     private static final String ERROR_CONECTION = "Error al intentar conectar con la BD";
@@ -34,8 +26,9 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category, String> imple
     @Autowired
     private CategoryMapper categoryMapper;
 
-    @Transactional    
-    public ResponseEntity<?> save(
+    @Transactional  
+    @Override
+    public ResponseEntity<?> addCategory(
             CategoryResponse category,
             ImageProfile image) {
         ResponseEntity<?> controlFieldsEmpty = controlFieldsEmpty(category);
@@ -78,4 +71,29 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category, String> imple
 //        }
 //
 //    }
+
+    @Override
+    public List<Category> findAll() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Category findById(Long id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Category save(Category entity) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Category update(Long id, Category entity) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean delete(Long id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

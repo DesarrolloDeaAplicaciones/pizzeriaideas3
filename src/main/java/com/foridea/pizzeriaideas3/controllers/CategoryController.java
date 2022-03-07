@@ -22,7 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @CrossOrigin(origins = "*") //recibo todo los origenes
 @RequestMapping(path = "api/v1/category")
-public class CategoryController extends BaseControllerImpl<Category, CategoryServiceImpl> {
+public class CategoryController  {
 
     @Autowired
     private CategoryService service;
@@ -36,8 +36,8 @@ public class CategoryController extends BaseControllerImpl<Category, CategorySer
             @RequestPart(value = "image", required = false) MultipartFile image,
             @RequestPart(value = "category", required = true) CategoryResponse category)
             throws URISyntaxException {
-
-        ResponseEntity<?> response = service.save(category, fileUploadService.uploadImageProfileToDB(image));
+ 
+        ResponseEntity<?> response = service.addCategory(category, fileUploadService.uploadImageProfileToDB(image));
         return new ResponseEntity<>(response.getBody(), response.getStatusCode());
     }
 
