@@ -1,651 +1,1104 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizzeria | Don Remolon</title>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizzeria Don Remolon</title>
 
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;400;500&display=swap" rel="stylesheet">
+    <!-- font-family: 'Lexend Deca', sans-serif; -->
+  </head>
+  <body>
 
-</head>
-<body> 
-    
-     <header class="header">    
-         <h1 class="header-h1">Don Remolon</h1> 
-     </header>  
-     <main> 
-         <section class="section">  
+      <!--* Comienzo de proyecto seba -->
 
-             <h2 class="section-h2">Menu</h2>   
+      <header class="herader">
 
-                 <section class="section-pizza">    
+          <div class="header-container-uno">
 
-                     <h2 class="pizza-h2">Pizzas</h2>
+            <img src="./assets/icons/Logo.svg" alt="logo" class="container-uno__icon"> 
+            
+            <div class="container-uno-direcciones">
+              
+              <p class="container-uno-direcciones__paraffo">Entragar en</p>
 
-                     <div class="pizza-container">
-                    
-                         <section class="container-section" data-pizza="1">
-                        
-                             <header class="section-header">
-                            
-                                 <img src="./settings/img/scroll-pizza-1.png" alt="pizza" class="section-header__img">
-                            
-                             </header>
-                         
-                             <footer class="section-footer">
-                            
-                                 <h3 class="section-footer__h3">Pizza</h3>
-                            
-                                 <p class="section-footer__p">las pizzas mas ricas del mundo</p>
-                                
-                                 <strong class="section-footer__strong">120$</strong>
+              <img src="./assets/icons/map_navar.svg" alt="map icon" class="container-uno-direcciones__icon">
 
-                                 <div class="footer-container">
-                                
-                                     <button class="footer-container__button-fill" id="btn-fill"></button>
-                                
-                                     <div class="footer-container__vista" id="pantalla"></div>
-                                
-                                     <button class="footer-container__button-plus" id="btn-plus"></button>
-                                
-                                 </div>
-                             
-                             </footer>
-                         
-                         </section> 
-                         <section class="container-section" data-pizza="2">
-                        
-                             <header class="section-header">
-                            
-                                 <img src="./settings/img/scroll-pizza-3.png" alt="pizza" class="section-header__img">
-                            
-                             </header>
-                         
-                             <footer class="section-footer">
-                            
-                                 <h3 class="section-footer__h3">Pizza</h3>
-                            
-                                 <p class="section-footer__p">las pizzas mas ricas del mundo</p>
+              <select name="direcciones" class="container-uno-direcciones__select">
 
-                                 <strong class="section-footer__strong">120$</strong>
-                            
-                                 <div class="footer-container">
-                                
-                                    <button class="footer-container__button-fill" id="btn-fill"></button>
-                                
-                                    <div class="footer-container__vista" id="pantalla"></div>
-                               
-                                    <button class="footer-container__button-plus" id="btn-plus"></button>
-                                
-                                 </div>
-                             
-                             </footer>
-                         
-                         </section> 
-                         <section class="container-section"data-pizza="3">
-                        
-                             <header class="section-header">
-                            
-                                 <img src="./settings/img/scroll-pizza-5.png" alt="pizza" class="section-header__img">
-                            
-                             </header>
-                         
-                             <footer class="section-footer">
-                            
-                                 <h3 class="section-footer__h3">Pizza</h3>
-                            
-                                 <p class="section-footer__p">las pizzas mas ricas del mundo</p>
+                <option value="1">Belgrano 574,Buenos Aires</option>
+                <option value="2">Libertad 1253,Garin</option>
+                <option value="3">Belgrano 575,Buenos Aires</option>
 
-                                 <strong class="section-footer__strong">120$</strong>
-                            
-                                 <div class="footer-container">
-                                
-                                    <button class="footer-container__button-fill" id="btn-fill"></button>
-                                
-                                    <div class="footer-container__vista" id="pantalla"></div>
-                               
-                                    <button class="footer-container__button-plus" id="btn-plus"></button>
-                                
-                                 </div>
-                             
-                             </footer>
-                         
-                         </section> 
-                         <section class="container-section" data-pizza="4">
-                        
-                             <header class="section-header">
-                            
-                                 <img src="./settings/img/scroll-pizza-1.png" alt="pizza" class="section-header__img">
-                            
-                             </header>
-                         
-                             <footer class="section-footer">
-                            
-                                 <h3 class="section-footer__h3">Pizza</h3>
-                            
-                                 <p class="section-footer__p">las pizzas mas ricas del mundo</p>
+              </select>
 
-                                 <strong class="section-footer__strong">120$</strong>
-                            
-                                 <div class="footer-container">
-                                
-                                    <button class="footer-container__button-fill" id="btn-fill"></button>
-                                
-                                    <div class="footer-container__vista" id="pantalla"></div>
-                               
-                                    <button class="footer-container__button-plus" id="btn-plus"></button>
-                                
-                                 </div>
-                             
-                             </footer>
-                         
-                         </section> 
-                         <section class="container-section" data-pizza="5">
-                        
-                             <header class="section-header">
-                            
-                                 <img src="./settings/img/scroll-pizza-3.png" alt="pizza" class="section-header__img">
-                            
-                             </header>
-                         
-                             <footer class="section-footer">
-                            
-                                 <h3 class="section-footer__h3">Pizza</h3>
-                            
-                                 <p class="section-footer__p">las pizzas mas ricas del mundo</p>
+            </div>
 
-                                 <strong class="section-footer__strong">120$</strong>
-                            
-                                 <div class="footer-container">
-                                
-                                     <button class="footer-container__button-fill" id="btn-fill"></button>
-                                
-                                     <div class="footer-container__vista" id="pantalla"></div>
-                                
-                                     <button class="footer-container__button-plus" id="btn-plus"></button>
-                                
-                                 </div>
-                             
-                             </footer>
-                         
-                         </section> 
-                     </div>
+          </div>
 
-                 </section> 
+          <div class="header-contenedor">
+            
+            <img src="./assets/icons/Search_Icon.svg" alt="search icono" class="heder-icon-search">
+            <input type="search" name="search" id="search" class="heaader-search" placeholder="Buscar productos...">
+            
+          </div>
+          <button class="heaader-button">0</button>
 
-                 <section class="section-pizza">    
+      </header>
 
-                    <h2 class="pizza-h2">Empanadas</h2>
+  
+      <main>
 
-                    <div class="pizza-container">
+        <div class="main-conatiner-hero">
+
+          <img src="./assets/img/HeroImage.png" alt="hero imagen" class="main-conatiner-hero__img-hero">
+
+        </div>
+
+        
+        <section class="mian-section-uno">
+
+          <header class="mian-section-uno-header">
+
+            <h1 class="section-header__titulo">Productos</h1>
+
+            <nav class="section-header-nav">
+
+              <ul class="header-nav-ul">
+  
+                <li class="nav-ul-li"><button class="nav-ul-li-button">PIZZAS</button></li>
+                <li class="nav-ul-li"><button class="nav-ul-li-button">EMPANADAS</button></li>
+                <li class="nav-ul-lcdi"><button class="nav-ul-li-button">BEBIDAS</button></li>
+                <li class="nav-ul-li"><button class="nav-ul-li-button">POSTRES</button></li>
+  
+              </ul>
+              
+
+            </nav>
+
+          </header>
+
+        </section>
+
+        <section class="main-section">
+
+          <h2 class="main-section__subtitulo">Pizzas</h2>
+
+          <div class="flex">
+
+              <article class="main-section-article">
+
+                <div class="main-section-article__contenido color-contenido-pizza">Pizzas</div>
+
+                <header class="article-header">
+
+                  <img src="./assets/img/Img-pizzas.png" alt="pizza" class="article-header__img">
+
+                </header>
+
+                <footer class="section-article-footer">
+
+                  <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                  <strong class="article-footer__strong">Salsa,muzzarella ,<br>aceintuna,oregono</strong>
+
+                  <p  class="article-footer__parrafo">$500</p> 
                    
-                        <section class="container-section" data-empanada="1">
-                       
-                            <header class="section-header">
-                           
-                                <img src="./settings/img/scroll-empanada-2.png" alt="pizza" class="section-header__img">
-                           
-                            </header>
-                        
-                            <footer class="section-footer">
-                           
-                                <h3 class="section-footer__h3">Pizza</h3>
-                           
-                                <p class="section-footer__p">las pizzas mas ricas del mundo</p>
-                               
-                                <strong class="section-footer__strong">120$</strong>
+                  <button class="article-footer__button">AGREGAR</button> 
 
-                                <div class="footer-container">
-                               
-                                    <button class="footer-container__button-fill" id="btn-fill"></button>
-                               
-                                    <div class="footer-container__vista" id="pantalla"></div>
-                               
-                                    <button class="footer-container__button-plus" id="btn-plus"></button>
-                               
-                                </div>
-                            
-                            </footer>
-                        
-                        </section> 
-                        <section class="container-section" data-empanada="2">
-                       
-                            <header class="section-header">
-                           
-                                <img src="./settings/img/scroll-empanada-5.png" alt="pizza" class="section-header__img">
-                           
-                            </header>
-                        
-                            <footer class="section-footer">
-                           
-                                <h3 class="section-footer__h3">Pizza</h3>
-                           
-                                <p class="section-footer__p">las pizzas mas ricas del mundo</p>
-
-                                <strong class="section-footer__strong">120$</strong>
-                           
-                                <div class="footer-container">
-                               
-                                   <button class="footer-container__button-fill" id="btn-fill"></button>
-                               
-                                   <div class="footer-container__vista" id="pantalla"></div>
-                              
-                                   <button class="footer-container__button-plus" id="btn-plus"></button>
-                               
-                                </div>
-                            
-                            </footer>
-                        
-                        </section> 
-                        <section class="container-section"data-empanada="3">
-                       
-                            <header class="section-header">
-                           
-                                <img src="./settings/img/scroll-empanada-2.png" alt="pizza" class="section-header__img">
-                           
-                            </header>
-                        
-                            <footer class="section-footer">
-                           
-                                <h3 class="section-footer__h3">Pizza</h3>
-                           
-                                <p class="section-footer__p">las pizzas mas ricas del mundo</p>
-
-                                <strong class="section-footer__strong">120$</strong>
-                           
-                                <div class="footer-container">
-                               
-                                   <button class="footer-container__button-fill" id="btn-fill"></button>
-                               
-                                   <div class="footer-container__vista" id="pantalla"></div>
-                              
-                                   <button class="footer-container__button-plus" id="btn-plus"></button>
-                               
-                                </div>
-                            
-                            </footer>
-                        
-                        </section> 
-                        <section class="container-section" data-empanada="4">
-                       
-                            <header class="section-header">
-                           
-                                <img src="./settings/img/scroll-empanada-5.png" alt="pizza" class="section-header__img">
-                           
-                            </header>
-                        
-                            <footer class="section-footer">
-                           
-                                <h3 class="section-footer__h3">Pizza</h3>
-                           
-                                <p class="section-footer__p">las pizzas mas ricas del mundo</p>
-
-                                <strong class="section-footer__strong">120$</strong>
-                           
-                                <div class="footer-container">
-                               
-                                   <button class="footer-container__button-fill" id="btn-fill"></button>
-                               
-                                   <div class="footer-container__vista" id="pantalla"></div>
-                              
-                                   <button class="footer-container__button-plus" id="btn-plus"></button>
-                               
-                                </div>
-                            
-                            </footer>
-                        
-                        </section> 
-                        <section class="container-section" data-empanada="5">
-                       
-                            <header class="section-header">
-                           
-                                <img src="./settings/img/scroll-empanada-2.png" alt="pizza" class="section-header__img">
-                           
-                            </header>
-                        
-                            <footer class="section-footer">
-                           
-                                <h3 class="section-footer__h3">Pizza</h3>
-                           
-                                <p class="section-footer__p">las pizzas mas ricas del mundo</p>
-
-                                <strong class="section-footer__strong">120$</strong>
-                           
-                                <div class="footer-container">
-                               
-                                    <button class="footer-container__button-fill" id="btn-fill"></button>
-                               
-                                    <div class="footer-container__vista" id="pantalla"></div>
-                               
-                                    <button class="footer-container__button-plus" id="btn-plus"></button>
-                               
-                                </div>
-                            
-                            </footer>
-                        
-                        </section> 
-                    </div>
-
-                </section>
-
-                <section class="section-pizza">    
-
-                    <h2 class="pizza-h2">Bebidas</h2>
-
-                    <div class="pizza-container">
-                   
-                        <section class="container-section" data-bebida="1">
-                       
-                            <header class="section-header">
-                           
-                                <img src="./settings/img/scroll-coca.png" alt="pizza" class="section-header__img">
-                           
-                            </header>
-                        
-                            <footer class="section-footer">
-                           
-                                <h3 class="section-footer__h3">Pizza</h3>
-                           
-                                <p class="section-footer__p">las pizzas mas ricas del mundo</p>
-                               
-                                <strong class="section-footer__strong">120$</strong>
-
-                                <div class="footer-container">
-                               
-                                    <button class="footer-container__button-fill" id="btn-fill"></button>
-                               
-                                    <div class="footer-container__vista" id="pantalla"></div>
-                               
-                                    <button class="footer-container__button-plus" id="btn-plus"></button>
-                               
-                                </div>
-                            
-                            </footer>
-                        
-                        </section> 
-                        <section class="container-section" data-bebida="2">
-                       
-                            <header class="section-header">
-                           
-                                <img src="./settings/img/scroll-cerveza.png" alt="pizza" class="section-header__img">
-                           
-                            </header>
-                        
-                            <footer class="section-footer">
-                           
-                                <h3 class="section-footer__h3">Pizza</h3>
-                           
-                                <p class="section-footer__p">las pizzas mas ricas del mundo</p>
-
-                                <strong class="section-footer__strong">120$</strong>
-                           
-                                <div class="footer-container">
-                               
-                                   <button class="footer-container__button-fill" id="btn-fill"></button>
-                               
-                                   <div class="footer-container__vista" id="pantalla"></div>
-                              
-                                   <button class="footer-container__button-plus" id="btn-plus"></button>
-                               
-                                </div>
-                            
-                            </footer>
-                        
-                        </section> 
-                        <section class="container-section"data-bebida="3">
-                       
-                            <header class="section-header">
-                           
-                                <img src="./settings/img/scroll-fanta.png" alt="pizza" class="section-header__img">
-                           
-                            </header>
-                        
-                            <footer class="section-footer">
-                           
-                                <h3 class="section-footer__h3">Pizza</h3>
-                           
-                                <p class="section-footer__p">las pizzas mas ricas del mundo</p>
-
-                                <strong class="section-footer__strong">120$</strong>
-                           
-                                <div class="footer-container">
-                               
-                                   <button class="footer-container__button-fill" id="btn-fill"></button>
-                               
-                                   <div class="footer-container__vista" id="pantalla"></div>
-                              
-                                   <button class="footer-container__button-plus" id="btn-plus"></button>
-                               
-                                </div>
-                            
-                            </footer>
-                        
-                        </section> 
-                        <section class="container-section" data-bebida="4">
-                       
-                            <header class="section-header">
-                           
-                                <img src="./settings/img/scroll-coca.png" alt="pizza" class="section-header__img">
-                           
-                            </header>
-                        
-                            <footer class="section-footer">
-                           
-                                <h3 class="section-footer__h3">Pizza</h3>
-                           
-                                <p class="section-footer__p">las pizzas mas ricas del mundo</p>
-
-                                <strong class="section-footer__strong">120$</strong>
-                           
-                                <div class="footer-container">
-                               
-                                   <button class="footer-container__button-fill" id="btn-fill"></button>
-                               
-                                   <div class="footer-container__vista" id="pantalla"></div>
-                              
-                                   <button class="footer-container__button-plus" id="btn-plus"></button>
-                               
-                                </div>
-                            
-                            </footer>
-                        
-                        </section> 
-                        <section class="container-section" data-bebida="5">
-                       
-                            <header class="section-header">
-                           
-                                <img src="./settings/img/scroll-cerveza.png" alt="pizza" class="section-header__img">
-                           
-                            </header>
-                        
-                            <footer class="section-footer">
-                           
-                                <h3 class="section-footer__h3">Pizza</h3>
-                           
-                                <p class="section-footer__p">las pizzas mas ricas del mundo</p>
-
-                                <strong class="section-footer__strong">120$</strong>
-                           
-                                <div class="footer-container">
-                               
-                                    <button class="footer-container__button-fill" id="btn-fill"></button>
-                               
-                                    <div class="footer-container__vista" id="pantalla"></div>
-                               
-                                    <button class="footer-container__button-plus" id="btn-plus"></button>
-                               
-                                </div>
-                            
-                            </footer>
-                        
-                        </section> 
-                    </div>
-
-                </section>
+                </footer>
+                
+              </article>  
 
 
-                <section class="section-pizza">    
+              <article class="main-section-article">
 
-                    <h2 class="pizza-h2">Postres</h2>
+                <div class="main-section-article__contenido color-contenido-pizza">Pizzas</div>
 
-                    <div class="pizza-container">
-                   
-                        <section class="container-section" data-postre="1">
-                       
-                            <header class="section-header">
-                           
-                                <img src="./settings/img/scroll-postre-2.png" alt="pizza" class="section-header__img">
-                           
-                            </header>
-                        
-                            <footer class="section-footer">
-                           
-                                <h3 class="section-footer__h3">Pizza</h3>
-                           
-                                <p class="section-footer__p">las pizzas mas ricas del mundo</p>
-                               
-                                <strong class="section-footer__strong">120$</strong>
+                <header class="article-header">
 
-                                <div class="footer-container">
-                               
-                                    <button class="footer-container__button-fill" id="btn-fill"></button>
-                               
-                                    <div class="footer-container__vista" id="pantalla"></div>
-                               
-                                    <button class="footer-container__button-plus" id="btn-plus"></button>
-                               
-                                </div>
-                            
-                            </footer>
-                        
-                        </section> 
-                        <section class="container-section" data-postre="2">
-                       
-                            <header class="section-header">
-                           
-                                <img src="./settings/img/scroll-postre-3.png" alt="pizza" class="section-header__img">
-                           
-                            </header>
-                        
-                            <footer class="section-footer">
-                           
-                                <h3 class="section-footer__h3">Pizza</h3>
-                           
-                                <p class="section-footer__p">las pizzas mas ricas del mundo</p>
+                  <img src="./assets/img/Img-pizzas.png" alt="pizza" class="article-header__img">
 
-                                <strong class="section-footer__strong">120$</strong>
-                           
-                                <div class="footer-container">
-                               
-                                   <button class="footer-container__button-fill" id="btn-fill"></button>
-                               
-                                   <div class="footer-container__vista" id="pantalla"></div>
-                              
-                                   <button class="footer-container__button-plus" id="btn-plus"></button>
-                               
-                                </div>
-                            
-                            </footer>
-                        
-                        </section> 
-                        <section class="container-section"data-postre="3">
-                       
-                            <header class="section-header">
-                           
-                                <img src="./settings/img/scroll-postre-5.png" alt="pizza" class="section-header__img">
-                           
-                            </header>
-                        
-                            <footer class="section-footer">
-                           
-                                <h3 class="section-footer__h3">Pizza</h3>
-                           
-                                <p class="section-footer__p">las pizzas mas ricas del mundo</p>
+                </header>
 
-                                <strong class="section-footer__strong">120$</strong>
-                           
-                                <div class="footer-container">
-                               
-                                   <button class="footer-container__button-fill" id="btn-fill"></button>
-                               
-                                   <div class="footer-container__vista" id="pantalla"></div>
-                              
-                                   <button class="footer-container__button-plus" id="btn-plus"></button>
-                               
-                                </div>
-                            
-                            </footer>
-                        
-                        </section> 
-                        <section class="container-section" data-postre="4">
-                       
-                            <header class="section-header">
-                           
-                                <img src="./settings/img/scroll-postre-2.png" alt="pizza" class="section-header__img">
-                           
-                            </header>
-                        
-                            <footer class="section-footer">
-                           
-                                <h3 class="section-footer__h3">Pizza</h3>
-                           
-                                <p class="section-footer__p">las pizzas mas ricas del mundo</p>
+                <footer class="section-article-footer">
 
-                                <strong class="section-footer__strong">120$</strong>
-                           
-                                <div class="footer-container">
-                               
-                                   <button class="footer-container__button-fill" id="btn-fill"></button>
-                               
-                                   <div class="footer-container__vista" id="pantalla"></div>
-                              
-                                   <button class="footer-container__button-plus" id="btn-plus"></button>
-                               
-                                </div>
-                            
-                            </footer>
-                        
-                        </section> 
-                        <section class="container-section" data-postre="5">
-                       
-                            <header class="section-header">
-                           
-                                <img src="./settings/img/scroll-postre-3.png" alt="pizza" class="section-header__img">
-                           
-                            </header>
-                        
-                            <footer class="section-footer">
-                           
-                                <h3 class="section-footer__h3">Pizza</h3>
-                           
-                                <p class="section-footer__p">las pizzas mas ricas del mundo</p>
+                  <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
 
-                                <strong class="section-footer__strong">120$</strong>
-                           
-                                <div class="footer-container">
-                               
-                                    <button class="footer-container__button-fill" id="btn-fill"></button>
-                               
-                                    <div class="footer-container__vista" id="pantalla"></div>
-                               
-                                    <button class="footer-container__button-plus" id="btn-plus"></button>
-                               
-                                </div>
-                            
-                            </footer>
-                        
-                        </section> 
-                    </div>
+                  <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
 
-                </section>
+                  <p  class="article-footer__parrafo">$500</p>
 
-         </section>
+                  <button class="article-footer__button">AGREGAR</button> 
 
-     </main>
-    
+                </footer>
 
-     <script src="./js/index.js"></script>
+              </article>
 
-</body>
+
+              <article class="main-section-article">  
+
+                <div class="main-section-article__contenido color-contenido-pizza">Pizzas</div>
+
+                <header class="article-header">
+
+                  <img src="./assets/img/Img-pizzas.png" alt="pizza" class="article-header__img">
+
+                </header>
+
+                <footer class="section-article-footer">
+
+                  <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                  <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                  <p  class="article-footer__parrafo">$500</p>
+
+                  <button class="article-footer__button">AGREGAR</button> 
+
+                </footer>
+
+              </article>
+
+
+              <article class="main-section-article">
+
+                <div class="main-section-article__contenido color-contenido-pizza">Pizzas</div>
+
+                <header class="article-header">
+
+                  <img src="./assets/img/Img-pizzas.png" alt="pizza" class="article-header__img">
+
+                </header>
+
+                <footer class="section-article-footer">
+
+                  <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                  <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                  <p  class="article-footer__parrafo">$500</p>
+
+                  <button class="article-footer__button">AGREGAR</button> 
+
+                </footer>
+
+              </article>
+
+
+              <article class="main-section-article">
+
+                <div class="main-section-article__contenido color-contenido-pizza">Pizzas</div>
+
+                <header class="article-header">
+
+                  <img src="./assets/img/Img-pizzas.png" alt="pizza" class="article-header__img">
+
+                </header>
+
+                <footer class="section-article-footer">
+
+                  <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                  <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                  <p  class="article-footer__parrafo">$500</p>
+
+                  <button class="article-footer__button">AGREGAR</button> 
+
+                </footer>
+
+              </article>
+
+
+              <article class="main-section-article">
+
+                <div class="main-section-article__contenido color-contenido-pizza">Pizzas</div>
+
+                <header class="article-header">
+
+                  <img src="./assets/img/Img-pizzas.png" alt="pizza" class="article-header__img">
+
+                </header>
+
+                <footer class="section-article-footer">
+
+                  <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                  <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                  <p  class="article-footer__parrafo">$500</p>
+
+                  <button class="article-footer__button">AGREGAR</button> 
+
+                </footer>
+
+              </article>
+
+
+              <article class="main-section-article">
+
+                <div class="main-section-article__contenido color-contenido-pizza">Pizzas</div>
+
+                <header class="article-header">
+
+                  <img src="./assets/img/Img-pizzas.png" alt="pizza" class="article-header__img">
+
+                </header>
+
+                <footer class="section-article-footer">
+
+                  <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                  <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                  <p  class="article-footer__parrafo">$500</p>
+
+                  <button class="article-footer__button">AGREGAR</button> 
+
+                </footer>
+
+              </article>
+
+
+              <article class="main-section-article">
+
+                <div class="main-section-article__contenido color-contenido-pizza">Pizzas</div>
+
+                <header class="article-header">
+
+                  <img src="./assets/img/Img-pizzas.png" alt="pizza" class="article-header__img">
+
+                </header>
+
+                <footer class="section-article-footer">
+
+                  <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                  <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                  <p  class="article-footer__parrafo">$500</p>
+
+                  <button class="article-footer__button">AGREGAR</button> 
+
+                </footer>
+
+              </article>
+
+            </div>
+
+        </section>
+
+        <section class="main-section">
+
+          <h2 class="main-section__subtitulo">Empanadas</h2>
+
+          <div class="flex">
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-empanada">Empanadas</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-empanada">Empanadas</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-empanada">Empanadas</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-empanada">Empanadas</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-empanada">Empanadas</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-empanada">Empanadas</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-empanada">Empanadas</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-empanada">Empanadas</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+          </div>    
+
+        </section>
+
+
+        <section class="main-section">
+
+          <h2 class="main-section__subtitulo">Bebidas</h2>
+
+          <div class="flex">
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-bebidas">Bebidas</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+                
+                <button class="article-footer__button">AGREGAR</button>
+                
+              </footer>
+              
+              
+            </article>
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-bebidas">Bebidas</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-bebidas">Bebidas</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-bebidas">Bebidas</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-bebidas">Bebidas</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-bebidas">Bebidas</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-bebidas">Bebidas</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-bebidas">Bebidas</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+          </div>    
+
+        </section>
+
+        <section class="main-section">
+
+          <h2 class="main-section__subtitulo">Postres</h2>
+
+          <div class="flex">
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-postres">Postres</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-postres">Postres</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-postres">Postres</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-postres">Postres</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-postres">Postres</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+              </footer>
+
+            </article>
+
+
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-postres">Postres</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-postres">Postres</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+
+            <article class="main-section-article">
+
+              <div class="main-section-article__contenido color-contenido-postres">Postres</div>
+
+              <header class="article-header">
+
+                <img src="./assets/img/Img-empanadas.png" alt="empanada" class="article-header__img">
+
+              </header>
+
+              <footer class="section-article-footer">
+
+                <h3 class="article-footer__sub-subtitle">MUZZARELLA</h3>
+
+                <strong class="article-footer__strong">Salsa,muzzarella,<br>aceintuna,oregono</strong>
+
+                <p  class="article-footer__parrafo">$500</p>
+
+                <button class="article-footer__button">AGREGAR</button> 
+
+              </footer>
+
+            </article>
+
+          </div>
+
+        </section>
+
+      </main>
+
+      <aside class="aside">
+        
+        <section class="asie-section">
+          
+          <h2 class="aside-subtitulo">Mi carrito</h2>
+          
+            <hr>
+          
+          <article class="asie-section-article">
+
+            <header class="section-article-header">
+
+              <div class="article-header-container-uno">
+
+                <img src="./assets/img/Img-pizzas.png" alt="pizza" clas="header-container-uno__img">
+
+              </div>
+
+              <div class="header-container-dos">
+
+                <h3 class="header-container-dos__h3">Pizza Muzzarella</h3>
+
+                <b class="header-container-dos__b">Ingredientes:</b>
+
+                <p class="header-container-dos__p">Salsa,muzzarella,aceitunas,oregano</p>
+
+            </div>
+
+            </header>
+
+            <footer class="aside-section-footer">
+
+              <div class="aside-footer-container-uno">
+
+                <button class="container-uno__button-menos"></button>
+
+                <span class="container-uno__span">0</span>
+
+                <button class="container-uno__button-mas"></button>
+
+              </div>
+
+              <div class="aside-footer-container-dos">
+                <p class="footer-container-dos__p">Total:</p><b>$500</b>
+              </div>
+
+            </footer>
+
+          </article>
+          <article class="asie-section-article">
+
+            <header class="section-article-header">
+
+              <div class="article-header-container-uno">
+
+                <img src="./assets/img/Img-pizzas.png" alt="pizza" clas="header-container-uno__img">
+
+              </div>
+
+              <div class="header-container-dos">
+
+                <h3 class="header-container-dos__h3">Pizza Muzzarella</h3>
+
+                <b class="header-container-dos__b">Ingredientes:</b>
+
+                <p class="header-container-dos__p">Salsa,muzzarella,aceitunas,oregano</p>
+
+            </div>
+
+            </header>
+
+            <footer class="aside-section-footer">
+
+              <div class="aside-footer-container-uno">
+
+                <button class="container-uno__button-menos"></button>
+
+                <span class="container-uno__span">0</span>
+
+                <button class="container-uno__button-mas"></button>
+
+              </div>
+
+              <div class="aside-footer-container-dos">
+                <p class="footer-container-dos__p">Total:</p><b>$500</b>
+              </div>
+
+            </footer>
+
+          </article>
+
+        </section>
+
+        <hr>
+          
+        <footer class="aside-footer">
+
+          <div class="aside-footer-container">
+
+            <p class="aside-footer-container__p">Subtotal:</p>
+
+            <b>$1000,00</b>
+
+            <button class="aside-footer__boton">COMPRAR</button>
+
+          </div>
+
+        </footer>
+
+      </aside>
+
+      <footer class="footer">
+
+        <div class="footer-container-uno">
+
+          <ul class="container-uno-ul">
+
+            <li class="uno-ul-li"><strong class="ul-li__strong">Conocenos</strong></li>
+            <li class="uno-ul-li"><a href="#" class="ul-li__enlace">¿Quienes somos?</a></li>
+            <li class="uno-ul-li"><a href="#" class="ul-li__enlace">Cuidando lod detalles</a></li>
+            <li class="uno-ul-li"><a href="#" class="ul-li__enlace">opiniones de los clientes</a></li>
+
+          </ul>
+
+          <ul class="container-uno-ul">
+
+            <li class="uno-ul-li"><strong class="ul-li__strong">Ayuda</strong></li>
+            <li class="uno-ul-li"><a href="#" class="ul-li__enlace">Servicio al cliente</a></li>
+            <li class="uno-ul-li"><a href="#" class="ul-li__enlace">Cuidando lod detalles</a></li>
+            <li class="uno-ul-li"><a href="#" class="ul-li__enlace">Contactos</a></li>
+
+          </ul>
+
+          <ul class="container-uno-ul">
+
+            <li class="uno-ul-li"><strong class="ul-li__strong">Pedidos y delivery</strong></li>
+            <li class="uno-ul-li"><a href="#" class="ul-li__enlace">¿Como funciona?</a></li>
+            <li class="uno-ul-li"><a href="#" class="ul-li__enlace">Terminos de compra</a></li>
+            
+
+          </ul>
+
+        </div>  
+
+          <div class="footer-container-dos">
+
+            <ul class="container-dos-ul">
+
+              <li class="dos-ul-li"><img src="./assets/icons/Facebook Icon.svg" alt="facebook icono" class="ul-li__img"></li>
+              <li class="dos-ul-li"><img src="./assets/icons/Pinterest Icon.svg" alt="pinteres icono" class="ul-li__img"></li>
+              <li class="dos-ul-li"><img src="./assets/icons/Google Icon.svg" alt="google icono" class="ul-li__img"></li>
+              <li class="dos-ul-li"><img src="./assets/icons/Twitter Icon.svg" alt="twitter icono" class="ul-li__img"></li>
+              <li class="dos-ul-li"><img src="./assets/icons/Youtube Icon.svg" alt="youtube icono" class="ul-li__img"></li>
+
+            </ul>
+
+            <div class="footer-container-tres">
+             <input type="search" name="foooter-search" id="foooter-search" class="container-tres__search" placeholder="Escribe tu mail para recibir ofertas">
+              <button class="contianer-tres__button">SUSCRIBETE</button>
+            </div>
+          </div>
+
+      </footer>
+
+
+      <button class="button-preguntas"></button>      
+
+      <div class="advertencia">
+
+        <p class="advertencia__parrafo">El pago es solo efectivo y el delivery a cargo de Don Remolo</p>
+
+        <button class="advertencia__boton">OK,ENTENDIDO</button>
+
+      </div>
+
+      <!--* ACA TERMINA LO DE SEBA XD -->
+
+
+    <script type="module" src="./js/main.js"></script>
+    <!-- <script type="nomodule"></script> -->
+  </body> 
 </html>
