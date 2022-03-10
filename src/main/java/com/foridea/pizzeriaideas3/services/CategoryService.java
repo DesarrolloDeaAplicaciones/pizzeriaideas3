@@ -14,14 +14,14 @@ public interface CategoryService{
      public ResponseEntity<?> addCategory(CategoryResponse category,ImageProfile profileImage );
 
      public List<CategoryImage> findAll();
-//
-//    public ResponseEntity<?> update(Long id, CategoryResponse category,ImageProfile profileImage);
-//
-//    public CategoryImage findById(Long id);
-//    
-//    public List<CategoryImage> listCategoryActive();
-//    
-//    public List<CategoryImage> listCategoryInactive();
-//
-//    void delete(Long id);
+
+    public ResponseEntity<?> update(Long id, CategoryResponse category,ImageProfile profileImage);
+
+    public CategoryImage findById(Long id);
+    
+    public List<CategoryImage> listCategoryActive();
+    
+    public List<CategoryImage> listCategoryInactive();
+
+    void delete(Long id);
 }

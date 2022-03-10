@@ -3,7 +3,7 @@ package com.foridea.pizzeriaideas3.util.Seeders;
 
 import com.foridea.pizzeriaideas3.entities.Category;
 import com.foridea.pizzeriaideas3.entities.ImageProfile;
-import com.foridea.pizzeriaideas3.repositories.CategoryRepository;
+import com.foridea.pizzeriaideas3.repository.CategoryRepository;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
