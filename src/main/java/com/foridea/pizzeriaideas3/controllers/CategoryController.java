@@ -31,8 +31,7 @@ public class CategoryController  {
     private CategoryService service;
     @Autowired
     private  FileUploadService fileUploadService;
-    @Autowired
-    private  ImageService imageService;
+    
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<?> createCategory(
