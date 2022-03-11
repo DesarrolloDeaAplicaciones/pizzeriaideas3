@@ -11,7 +11,7 @@ public class PortalController {
   public String hola(Model modelo) {
     
     
-    modelo.addAttribute("mensaje","hola desde thymeleaf");
+    modelo.addAttribute("mensaje","hola desde Sr piza");
     return "index";
   }
 }

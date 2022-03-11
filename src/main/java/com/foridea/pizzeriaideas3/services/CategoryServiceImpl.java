@@ -1,6 +1,5 @@
 package com.foridea.pizzeriaideas3.services;
 
-
 import com.foridea.pizzeriaideas3.dto.CategoryImage;
 import com.foridea.pizzeriaideas3.dto.CategoryResponse;
 import com.foridea.pizzeriaideas3.entities.Category;
@@ -17,21 +16,20 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import springfox.documentation.swagger2.mappers.ModelMapper;
-//implementacion de servicios Categoria
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
-   
 
     private static final String ERROR_FIND_ID = "No se econtro la categoria";
     private static final String ERROR_CONECTION = "Error al intentar conectar con la BD";
-   
+    private static final String ERROR_NOT_LIST_CATEGORY = "No se ecuentra categorias";
+
     @Autowired
     private CategoryRepository categoryRepository;
     @Autowired
     private CategoryMapper categoryMapper;
 
-    @Transactional  
+    @Transactional
     @Override
     public ResponseEntity<?> addCategory(
             CategoryResponse category,
@@ -64,10 +62,10 @@ public class CategoryServiceImpl implements CategoryService {
     @Transactional
     @Override
     public List<CategoryImage> findAll() {
-        try {     
+        try {
             List<CategoryImage> listResponse = new ArrayList<>();
             List<Category> entities = categoryRepository.findAll();
-            for (Category entity : entities) {                
+            for (Category entity : entities) {
                 listResponse.add(categoryMapper.categoryImageEntityDto(entity));
             }
             return listResponse;
@@ -75,7 +73,8 @@ public class CategoryServiceImpl implements CategoryService {
             throw new EntityNotFoundException(ERROR_CONECTION);
         }
     }
-   @Transactional
+
+    @Transactional
     @Override
     public ResponseEntity<?> update(Long id, CategoryResponse entity, ImageProfile image) {
         Optional<Category> entityById = categoryRepository.findById(id);
@@ -101,7 +100,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryImage findById(Long id) {
         try {
-            Optional<Category> entityById = categoryRepository.findById(id);          
+            Optional<Category> entityById = categoryRepository.findById(id);
             if (entityById.isPresent()) {
                 CategoryImage entityResponse = categoryMapper.categoryImageEntityDto(entityById.get());
                 return entityResponse;
@@ -116,41 +115,38 @@ public class CategoryServiceImpl implements CategoryService {
     @Transactional
     @Override
     public List<CategoryImage> listCategoryActive() {
-        try {
-            List<CategoryImage> listResponse = new ArrayList<>();
-            List<Category> entities = categoryRepository.listCategoryActive();
 
-            for (Category entity : entities) {
-                listResponse.add(categoryMapper.categoryImageEntityDto(entity));
-            }
-            return listResponse;
-        } catch (EntityNotFoundException e) {
-            throw new EntityNotFoundException(ERROR_CONECTION);
+        List<CategoryImage> listResponse = new ArrayList<>();
+        List<Category> entities = categoryRepository.listCategoryActive();
+       if (listZizeCategory(entities)) {
+        for (Category entity : entities) {
+            listResponse.add(categoryMapper.categoryImageEntityDto(entity));
         }
+        return listResponse;
+       }
+       return null;
     }
 
     @Transactional
     @Override
     public List<CategoryImage> listCategoryInactive() {
-        try {
-            List<CategoryImage> listResponse = new ArrayList<>();
-            
+        List<CategoryImage> listResponse = new ArrayList<>();
         List<Category> entities = categoryRepository.listCategoryInactive();
-            if (entities.isEmpty()) {
-                throw new EntityNotFoundException("No se ecuentra categorias inactivas");
-            }else{           
-            
+        if (listZizeCategory(entities)) {
             for (Category entity : entities) {
                 listResponse.add(categoryMapper.categoryImageEntityDto(entity));
             }
-             return listResponse;
-            }
-        } catch (EntityNotFoundException e) {
-            throw new EntityNotFoundException(ERROR_CONECTION);
-        }
+            return listResponse;
+        }     
+        return null;
     }
-    
-   
+
+    public boolean listZizeCategory(List entities) {
+        if (entities.size() == 0) {
+            throw new EntityNotFoundException(ERROR_NOT_LIST_CATEGORY);
+        }
+        return true;
+    }
 
     @Transactional
     @Override
@@ -163,12 +159,11 @@ public class CategoryServiceImpl implements CategoryService {
 
     private Category getCategory(Long id) {
         Optional<Category> category = categoryRepository.findById(id);
-      
+
         if (!category.isPresent() || category.get().isSoftDeleted()) {
             throw new EntityNotFoundException(ERROR_FIND_ID);
         }
         return category.get();
     }
-   
 
 }
