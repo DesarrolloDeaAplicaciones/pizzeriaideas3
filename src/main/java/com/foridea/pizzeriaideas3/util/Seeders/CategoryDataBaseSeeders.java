@@ -38,15 +38,16 @@ public class CategoryDataBaseSeeders {
             for (int index = 0; index < categories.length; index++) {
                 ImageProfile image = new ImageProfile();
                 Category category = new Category();
-                category.setName(categories[index].toUpperCase());
+                category.setNamecategory(categories[index].toUpperCase());
                 category.setDescription("Descripción de " + categories[index]);
+                category.setCategories(null);           
 
                 InputStream inputStream = new FileInputStream(new File(sCarpAct + "/src/main/resources/static/images/" + listFile[index]));
                 //String name, @Nullable String originalFilename, @Nullable String contentType, InputStream contentStream)
                 MultipartFile partFile = new MockMultipartFile(listFile[index], listFile[index], "image/png", inputStream);
                 image.setFileData(partFile.getBytes());
                 image.setFileType("image/png");
-                image.setName(partFile.getName());
+                image.setName_image(partFile.getName());
                 category.setImageProfile(image);
                 category.setStatus(Boolean.TRUE);               
                 categoryRepository.save(category);

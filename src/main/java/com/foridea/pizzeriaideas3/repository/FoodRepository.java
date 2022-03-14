@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FoodRepository extends JpaRepository<Food, Long>{
-   @Query("SELECT c from Food c")
-    public List<Food> listFood();
-    @Query("SELECT a from Category a WHERE a.id= :id")
-    public Category searchFoodId(@Param("id") String id);
+//   @Query("SELECT c from Food c")
+//    public List<Food> listFood();
+//    @Query("SELECT a from Category a WHERE a.id= :id")
+//    public Category searchFoodId(@Param("id") String id);
 }

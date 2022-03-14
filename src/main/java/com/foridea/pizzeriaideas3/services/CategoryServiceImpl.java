@@ -2,9 +2,10 @@ package com.foridea.pizzeriaideas3.services;
 
 import com.foridea.pizzeriaideas3.dto.CategoryImage;
 import com.foridea.pizzeriaideas3.dto.CategoryResponse;
+import com.foridea.pizzeriaideas3.dto.ModelImage;
 import com.foridea.pizzeriaideas3.entities.Category;
 import com.foridea.pizzeriaideas3.entities.ImageProfile;
-import com.foridea.pizzeriaideas3.mapper.CategoryMapper;
+import com.foridea.pizzeriaideas3.mapper.GenericModelMapper;
 import com.foridea.pizzeriaideas3.repository.CategoryRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,19 +16,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import springfox.documentation.swagger2.mappers.ModelMapper;
+
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
     private static final String ERROR_FIND_ID = "No se econtro la categoria";
     private static final String ERROR_CONECTION = "Error al intentar conectar con la BD";
-    private static final String ERROR_NOT_LIST_CATEGORY = "No se ecuentra categorias";
-
+    private static final String ERROR_NOT_LIST_CATEGORY = "No se encontro categorias";
+    private String url="http://localhost:8080/api/v1/images/profileimage/";
     @Autowired
-    private CategoryRepository categoryRepository;
-    @Autowired
-    private CategoryMapper categoryMapper;
+    private CategoryRepository categoryRepository;   
+    static GenericModelMapper mapper=GenericModelMapper.singleInstance();
 
     @Transactional
     @Override
@@ -41,7 +41,7 @@ public class CategoryServiceImpl implements CategoryService {
 
         category.setImageProfile(image);
         try {
-            categoryRepository.save(categoryMapper.categoryDtoEntity(category));
+            categoryRepository.save(mapper.mapDtoCategory(category)) ;
             return new ResponseEntity<>("Category created succesfully!",
                     HttpStatus.OK);
         } catch (Exception e) {
@@ -55,23 +55,8 @@ public class CategoryServiceImpl implements CategoryService {
         final ResponseEntity<?> messageFieldsEmpty
                 = new ResponseEntity<>("The fields Name can't be empty",
                         HttpStatus.NOT_ACCEPTABLE);
-        return (category.getName() == null
-                || category.getName().trim().isEmpty()) ? messageFieldsEmpty : null;
-    }
-
-    @Transactional
-    @Override
-    public List<CategoryImage> findAll() {
-        try {
-            List<CategoryImage> listResponse = new ArrayList<>();
-            List<Category> entities = categoryRepository.findAll();
-            for (Category entity : entities) {
-                listResponse.add(categoryMapper.categoryImageEntityDto(entity));
-            }
-            return listResponse;
-        } catch (EntityNotFoundException e) {
-            throw new EntityNotFoundException(ERROR_CONECTION);
-        }
+        return (category.getNamecategory()== null
+                || category.getNamecategory().trim().isEmpty()) ? messageFieldsEmpty : null;
     }
 
     @Transactional
@@ -86,7 +71,7 @@ public class CategoryServiceImpl implements CategoryService {
         }
         entity.setImageProfile(image);
         try {
-            categoryRepository.save(categoryMapper.categoryDtoEntity(entity));
+            categoryRepository.save(mapper.mapDtoCategory(entity));
             return new ResponseEntity<>("Category updated succesfully!",
                     HttpStatus.OK);
         } catch (Exception e) {
@@ -101,9 +86,10 @@ public class CategoryServiceImpl implements CategoryService {
     public CategoryImage findById(Long id) {
         try {
             Optional<Category> entityById = categoryRepository.findById(id);
-            if (entityById.isPresent()) {
-                CategoryImage entityResponse = categoryMapper.categoryImageEntityDto(entityById.get());
-                return entityResponse;
+            if (entityById.isPresent()) {                
+                return mapper.mapToCategorySimppleDto(entityById.get(),
+                        new ModelImage(entityById.get().getImageProfile().getName_image(), 
+                                url+entityById.get().getImageProfile().getId()));
             } else {
                 throw new EntityNotFoundException(ERROR_FIND_ID);
             }
@@ -114,38 +100,33 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Transactional
     @Override
-    public List<CategoryImage> listCategoryActive() {
+    public List<CategoryImage> findAll() {
+        return listZizeCategory(categoryRepository.findAll());
+    }
 
-        List<CategoryImage> listResponse = new ArrayList<>();
-        List<Category> entities = categoryRepository.listCategoryActive();
-       if (listZizeCategory(entities)) {
-        for (Category entity : entities) {
-            listResponse.add(categoryMapper.categoryImageEntityDto(entity));
-        }
-        return listResponse;
-       }
-       return null;
+    @Transactional
+    @Override
+    public List<CategoryImage> listCategoryActive() {
+        return listZizeCategory(categoryRepository.listCategoryActive());
     }
 
     @Transactional
     @Override
     public List<CategoryImage> listCategoryInactive() {
-        List<CategoryImage> listResponse = new ArrayList<>();
-        List<Category> entities = categoryRepository.listCategoryInactive();
-        if (listZizeCategory(entities)) {
-            for (Category entity : entities) {
-                listResponse.add(categoryMapper.categoryImageEntityDto(entity));
-            }
-            return listResponse;
-        }     
-        return null;
+        return listZizeCategory(categoryRepository.listCategoryInactive());
     }
 
-    public boolean listZizeCategory(List entities) {
+    public List<CategoryImage> listZizeCategory(List<Category> entities) {     
+        
+        List<CategoryImage> listResponse = new ArrayList<>();
         if (entities.size() == 0) {
             throw new EntityNotFoundException(ERROR_NOT_LIST_CATEGORY);
         }
-        return true;
+        for (Category entity : entities) {           
+            listResponse.add(mapper.mapToCategorySimppleDto(entity, 
+                    new ModelImage(entity.getImageProfile().getName_image(), url+entity.getImageProfile().getId()) ));
+        }
+        return listResponse;
     }
 
     @Transactional

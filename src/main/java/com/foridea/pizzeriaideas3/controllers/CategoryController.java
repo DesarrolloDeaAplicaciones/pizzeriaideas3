@@ -3,7 +3,6 @@ package com.foridea.pizzeriaideas3.controllers;
 import com.foridea.pizzeriaideas3.dto.CategoryResponse;
 import com.foridea.pizzeriaideas3.services.CategoryService;
 import com.foridea.pizzeriaideas3.services.FileUploadService;
-import com.foridea.pizzeriaideas3.services.ImageService;
 import java.net.URISyntaxException;
 import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

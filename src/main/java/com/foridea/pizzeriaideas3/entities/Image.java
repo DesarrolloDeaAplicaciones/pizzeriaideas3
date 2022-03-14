@@ -26,7 +26,7 @@ public class Image {
     private String id;
 
     @Column(name = "name", nullable = false, updatable = true)
-    private String name;
+    private String name_image;
 
     @Column(name = "fileType", nullable = false, updatable = true)
     private String fileType;

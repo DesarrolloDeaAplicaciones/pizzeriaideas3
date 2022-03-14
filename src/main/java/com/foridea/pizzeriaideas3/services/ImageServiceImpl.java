@@ -21,7 +21,7 @@ public class ImageServiceImpl implements ImageService{
     public ResponseEntity<Resource> generateImage(Image image) {
         return ResponseEntity.ok()
                .contentType(MediaType.parseMediaType(image.getFileType()))
-               .header(HttpHeaders.CONTENT_DISPOSITION,"attachment; filename = " + image.getName())
+               .header(HttpHeaders.CONTENT_DISPOSITION,"attachment; filename = " + image.getName_image())
                .body(new ByteArrayResource(image.getFileData()));
     }
 

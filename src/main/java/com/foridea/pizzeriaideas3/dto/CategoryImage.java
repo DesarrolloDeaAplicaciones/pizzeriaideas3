@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CategoryImage {
     private Long id;
-    private String name;  
+    private String namecategory;  
     private String description;
     private Boolean status;  
     private ModelImage image;

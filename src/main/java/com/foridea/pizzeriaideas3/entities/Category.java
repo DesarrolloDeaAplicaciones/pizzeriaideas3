@@ -2,10 +2,14 @@
 package com.foridea.pizzeriaideas3.entities;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
@@ -37,8 +41,8 @@ import org.hibernate.annotations.SQLDelete;
 public class Category extends Base {
 
     @NotEmpty(message = "Nombre Obligatorio")
-    @Column(name = "name", nullable = false, updatable = true, unique = true)
-    private String name;
+    @Column(name = "name_category", nullable = false, updatable = true, unique = true)
+    private String namecategory;
 
     @Column(name = "description")
     private String description;
@@ -46,6 +50,14 @@ public class Category extends Base {
     @OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})
     @JoinColumn(name="imageProfile")
     private ImageProfile imageProfile;
+    
+    @OneToMany
+    @JoinTable(
+    name = "category_food", 
+    joinColumns = @JoinColumn(name = "category_id"), 
+    inverseJoinColumns = @JoinColumn(name = "food_id"))
+    @Column(name = "food_id", updatable = true, nullable = true)
+    private List<Food> categories = new ArrayList<Food>();
     
     @Column(name = "soft_deleted")
     private boolean softDeleted = Boolean.FALSE;    
