@@ -37,7 +37,7 @@ public class Food extends  Base{
   private ImageProfile imageProfile; 
   @OneToOne()
   @JoinColumn(name="category_id", updatable = true, nullable = true) 
-  private Category idcategory; 
+  private Category category_id; 
   
   @OneToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH})
   @JoinColumn(name="listReports")

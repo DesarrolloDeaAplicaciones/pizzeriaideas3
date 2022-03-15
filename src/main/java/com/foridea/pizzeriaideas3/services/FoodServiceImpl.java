@@ -1,9 +1,15 @@
 package com.foridea.pizzeriaideas3.services;
 
 import com.foridea.pizzeriaideas3.dto.ModelFood;
+import com.foridea.pizzeriaideas3.dto.ModelFoodList;
+import com.foridea.pizzeriaideas3.dto.ModelImage;
+import com.foridea.pizzeriaideas3.entities.Food;
 import com.foridea.pizzeriaideas3.entities.ImageProfile;
 import com.foridea.pizzeriaideas3.mapper.GenericFoodMapper;
 import com.foridea.pizzeriaideas3.repository.FoodRepository;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +23,8 @@ public class FoodServiceImpl implements FoodService {
     private FoodRepository foodRepository;
     private static final String ERROR_FIND_ID = "No se econtro la categoria";
     private static final String ERROR_CONECTION = "Error al intentar conectar con la BD";
-    private static final String ERROR_NOT_LIST_CATEGORY = "No se encontro categorias";
-    //  private String url="http://localhost:8080/api/v1/images/profileimage/";
+    private static final String ERROR_NOT_LIST_FOOD = "No se encontraron comidas";
+    private String url="http://localhost:8080/api/v1/images/profileimage/";
     
     @Autowired
      static GenericFoodMapper mapper=GenericFoodMapper.singleInstance();
@@ -36,7 +42,7 @@ public class FoodServiceImpl implements FoodService {
         food.setImageProfile(image);
         try {
             foodRepository.save(mapper.mapDtoFood(food));
-            return new ResponseEntity<>("Category created succesfully!",
+            return new ResponseEntity<>("Food created succesfully!",
                     HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
@@ -53,4 +59,30 @@ public class FoodServiceImpl implements FoodService {
                 || food.getName_food().trim().isEmpty()) ? messageFieldsEmpty : null;
     }
 
+    
+     @Transactional
+    @Override
+    public List<ModelFood> findAll() {
+        return listZizeFood(foodRepository.findAll());
+    }
+
+   
+
+    public List<ModelFood> listZizeFood(List<Food> entities) {     
+        
+        List<ModelFood> listResponse = new ArrayList<>();
+        if (entities.size() == 0) {
+            throw new EntityNotFoundException(ERROR_NOT_LIST_FOOD);
+        }
+        for (Food entity : entities) {           
+            listResponse.add(mapper.mapToFoodSimppleDto(entity, 
+                    new ModelImage(entity.getImageProfile().getName_image(), url+entity.getImageProfile().getId()) ));
+        }
+        return listResponse;
+    }
+
+//    @Override
+//    public List<ModelFoodList> findAll() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
 }
