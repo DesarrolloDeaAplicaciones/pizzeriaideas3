@@ -1,14 +1,19 @@
 package com.foridea.pizzeriaideas3.services;
 
+import com.foridea.pizzeriaideas3.dto.CategoryImage;
+import com.foridea.pizzeriaideas3.dto.ModelCategoryImage;
 import com.foridea.pizzeriaideas3.dto.ModelFood;
 import com.foridea.pizzeriaideas3.dto.ModelFoodList;
 import com.foridea.pizzeriaideas3.dto.ModelImage;
+import com.foridea.pizzeriaideas3.entities.Category;
 import com.foridea.pizzeriaideas3.entities.Food;
 import com.foridea.pizzeriaideas3.entities.ImageProfile;
 import com.foridea.pizzeriaideas3.mapper.GenericFoodMapper;
 import com.foridea.pizzeriaideas3.repository.FoodRepository;
+import static com.foridea.pizzeriaideas3.services.CategoryServiceImpl.mapper;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -40,6 +45,7 @@ public class FoodServiceImpl implements FoodService {
         }
 
         food.setImageProfile(image);
+        food.setStatus(true);
         try {
             foodRepository.save(mapper.mapDtoFood(food));
             return new ResponseEntity<>("Food created succesfully!",
@@ -60,29 +66,81 @@ public class FoodServiceImpl implements FoodService {
     }
 
     
-     @Transactional
+    @Transactional
     @Override
-    public List<ModelFood> findAll() {
+    public List<ModelFoodList> findAll() {
         return listZizeFood(foodRepository.findAll());
     }
 
    
 
-    public List<ModelFood> listZizeFood(List<Food> entities) {     
-        
-        List<ModelFood> listResponse = new ArrayList<>();
+    public List<ModelFoodList> listZizeFood(List<Food> entities) {  
+        List<ModelFoodList> listResponse = new ArrayList<>();
         if (entities.size() == 0) {
             throw new EntityNotFoundException(ERROR_NOT_LIST_FOOD);
         }
         for (Food entity : entities) {           
             listResponse.add(mapper.mapToFoodSimppleDto(entity, 
-                    new ModelImage(entity.getImageProfile().getName_image(), url+entity.getImageProfile().getId()) ));
-        }
+                    new ModelImage(entity.getImageProfile().getName_image(), url+entity.getImageProfile().getId()),
+                    new ModelCategoryImage(entity.getCategory_id().getId(), entity.getCategory_id().getNamecategory())));
+        }       
         return listResponse;
     }
+    
+    @Transactional
+    @Override
+    public ResponseEntity<?> update(Long id, ModelFood entity, ImageProfile image) {
+        Optional<Food> entityById = foodRepository.findById(id);
+        if (entityById.isPresent()) {
+            ResponseEntity<?> controlFieldsEmpty = controlFieldsEmpty(entity);
+            if (controlFieldsEmpty != null) {
+                return controlFieldsEmpty;
+            }
+        }
+        entity.setImageProfile(image);
+        try {
+             foodRepository.save(mapper.mapDtoFood(entity));
+            return new ResponseEntity<>("Food updated succesfully!",
+                    HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>("Ups something was wrong..!",
+                    HttpStatus.CONFLICT);
+        }
+    }
+    
+     @Transactional
+    @Override
+    public ModelFoodList findById(Long id) {
+        try {
+            Optional<Food> entityById = foodRepository.findById(id);
+            if (entityById.isPresent()) {                
+                return mapper.mapToFoodSimppleDto(entityById.get(),
+                        new ModelImage(entityById.get().getImageProfile().getName_image(), 
+                                url+entityById.get().getImageProfile().getId()), 
+                        new ModelCategoryImage(entityById.get().getCategory_id().getId(),entityById.get().getCategory_id().getNamecategory()));
+            } else {
+                throw new EntityNotFoundException(ERROR_FIND_ID);
+            }
+        } catch (EntityNotFoundException e) {
+            throw new EntityNotFoundException(ERROR_CONECTION);
+        }
+    }
+    @Transactional
+    @Override
+    public void delete(Long id) throws EntityNotFoundException {
+        Food food = getFood(id);
+        //food.setSoftDeleted(true);
+        food.setStatus(Boolean.FALSE);
+        foodRepository.save(food);
+    }
 
-//    @Override
-//    public List<ModelFoodList> findAll() {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
+    private Food getFood(Long id) {
+        Optional<Food> food = foodRepository.findById(id);
+        //|| food.get().isSoftDeleted()
+        if (!food.isPresent()) {
+            throw new EntityNotFoundException(ERROR_FIND_ID);
+        }
+        return food.get();
+    }
 }

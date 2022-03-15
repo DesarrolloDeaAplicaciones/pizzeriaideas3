@@ -10,15 +10,13 @@ import org.springframework.http.ResponseEntity;
 public interface FoodService {
 
     public ResponseEntity<?> addFood(ModelFood food, ImageProfile profileImage);
-    public List<ModelFood> findAll();
-//
-//    public ResponseEntity<?> update(Long id, CategoryResponse category, ImageProfile profileImage);
-//
-//    public CategoryImage findById(Long id);
-//
+    public List<ModelFoodList> findAll();
+    public ResponseEntity<?> update(Long id, ModelFood food, ImageProfile profileImage);
+    public ModelFoodList findById(Long id);
+
 //    public List<CategoryImage> listCategoryActive();
 //
 //    public List<CategoryImage> listCategoryInactive();
 //
-//    void delete(Long id);
+    void delete(Long id);
 }
