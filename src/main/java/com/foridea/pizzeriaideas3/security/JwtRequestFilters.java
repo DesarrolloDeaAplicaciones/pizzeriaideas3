@@ -1,7 +1,7 @@
 package com.foridea.pizzeriaideas3.security;
 
-import com.estore.ecomerce.common.JwtUtil;
-import com.estore.ecomerce.service.UserServiceImpl;
+import com.foridea.pizzeriaideas3.common.JwtUtil;
+import com.foridea.pizzeriaideas3.services.UserServiceImpl;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -10,7 +10,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

@@ -1,6 +1,7 @@
 package com.foridea.pizzeriaideas3.common;
 
-import com.estore.ecomerce.domain.Client;
+
+import com.foridea.pizzeriaideas3.entities.Client;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
