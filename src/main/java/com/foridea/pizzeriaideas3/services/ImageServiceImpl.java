@@ -1,4 +1,5 @@
 package com.foridea.pizzeriaideas3.services;
+import com.foridea.pizzeriaideas3.abstraction.ImageService;
 import com.foridea.pizzeriaideas3.entities.Image;
 import com.foridea.pizzeriaideas3.repositories.ImageRepository;
 import java.util.List;

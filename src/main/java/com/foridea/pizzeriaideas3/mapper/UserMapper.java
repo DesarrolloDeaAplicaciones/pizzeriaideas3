@@ -5,7 +5,7 @@ import com.foridea.pizzeriaideas3.dto.UserRegisterRequest;
 import com.foridea.pizzeriaideas3.dto.UserRegisterResponse;
 import com.foridea.pizzeriaideas3.dto.UserUpdateResponse;
 import com.foridea.pizzeriaideas3.entities.Client;
-import com.foridea.pizzeriaideas3.services.FileUploadService;
+import com.foridea.pizzeriaideas3.abstraction.FileUploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;

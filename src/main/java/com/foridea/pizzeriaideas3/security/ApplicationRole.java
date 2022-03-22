@@ -3,7 +3,8 @@ package com.foridea.pizzeriaideas3.security;
 public enum ApplicationRole {
 
     USER("USER"),
-    ADMIN("ADMIN");
+    ADMIN("ADMIN"),
+    KITCHEN("KITCHEN");
 
     private static final String ROLE_PREFIX = "ROLE_";
     private final String name;

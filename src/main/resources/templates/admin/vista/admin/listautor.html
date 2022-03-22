@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout">
+
+    <head>
+        <title>Dashboard</title>
+        <script>
+            $(document).ready(function () {
+                 
+                $('.nBtn, .table .editarBtn').on('click', function (event) {
+                    event.preventDefault();
+                    defaultModal();
+                    
+                    var href = $(this).attr('href');
+                    var text= $(this).text();
+                  if(text=='Add'){ 
+                     $('.formulario #tituloModal').html('Crear Autor');                     
+                  }else {
+                       $('.formulario #tituloModal').html('Editar Autor');
+                  }
+                    $.get(href, function (objeto, status) {
+                        $('.formulario #id').val(objeto.id);
+                        $('.formulario #nombre').val(objeto.nombre);
+                        $('.formulario #alta').val(objeto.alta);
+                    });
+              
+                    $('.formulario #exampleModal').modal();
+                });
+                
+                //modal delete
+                $('.table .deleteBtn').on('click', function (event) {                  
+                   event.preventDefault();
+                   var action = '[[@{/autor}]]/delete';
+                  $('.modal-header').addClass("bg-danger");
+                   $('.formulario .formimput').hide();
+                   $('.formulario #tituloModal').html('Eliminar Autor');
+                   $('.formulario .formmsj').show();
+                   $('.formulario .envBtn').addClass('btn btn-danger');
+                   $('.btnFormularios #btnEnv').html("Eliminar");                
+                   
+                   $('.formulario #formAutor').attr("method","get");
+                   var href = $(this).attr('href');
+                   $.get(href, function (autor, status) { 
+                       //__${autor.id}__
+                       $('.formulario #formAutor').attr("action",action+"/"+autor.id);
+                        $('.formulario #id').val(autor.id);
+                        $('.formmsj #autorEliminar').html(autor.nombre);
+                        $('.formulario #nombre').val(autor.nombre);
+                        $('.formulario #alta').val(autor.alta);
+                       
+                    });
+                   $('.formulario #exampleModal').modal();
+                
+                   
+                   
+                    
+                });
+                function defaultModal (){
+                    //alert("hola mundo");    
+                    $('.formulario .formmsj').hide();
+                    $('.modal-header').removeClass("bg-danger");
+                    $('.formulario .envBtn').removeClass('btn btn-danger');
+                    $('.modal-header').addClass("bg-blue");
+                    $('.formulario .formimput').show();
+                    $('.formulario .envBtn').addClass('btn btn-primary');
+                    $('.btnFormularios #btnEnv').html("Guardar");
+                }
+
+            });
+
+        </script>
+    </head>
+    <body>
+    <div layout:fragment="content">
+        <section class="content">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Default box -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Autor</h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="box-body">
+                                    <button type="button" class="btn btn-primary mb-3 nBtn" >Add</button>
+
+                                    <!-- The Modal -->
+
+                                    <div th:if="${param.success}">
+                                        <div class="alert alert-success alert-dismissible">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                            <h4><i class="icon fa fa-check"></i> Success!</h4>
+                                            Information saved successfully.
+                                        </div>
+                                    </div>
+                                    <div th:if="${param.deleted}">
+                                        <div class="alert alert-info alert-dismissible">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                            <h4><i class="icon fa fa-check"></i> Deleted!</h4>
+                                            Information deleted successfully.
+                                        </div>
+                                    </div>
+
+                                    <!--<div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">-->
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <table id="tablaUsuario" class="table table-bordered table-striped dataTable" role="grid"
+                                                   aria-describedby="example1_info">
+                                                <thead class="thead">
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Nombre</th>
+                                                        <th>Activo</th>
+                                                        <th>Opciones</th>                                      
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr th:each="autor : ${autores}">
+                                                        <td th:text="${autor.id}">ID</td>                                        
+                                                        <td th:text="${autor.nombre}">Nombre</td>
+                                                        <td>
+                                                            <i th:if="${autor.alta}" class="fa fa-circle text-success"></i>
+                                                            <i th:unless="${autor.alta}" class="fa fa-circle" style="color:red;"></i>                                       
+                                                        </td>   
+                                                        <td>            
+                                                            <!-- data-toggle="modal" data-target="#exampleModal2"-->
+                                                            <a th:href="@{/autor/findOne/(id=${autor.id})}" class="editarBtn"><i class="fas fa-pencil-alt option-list" ></i></a>
+                                                            <a th:if="${autor.alta}" th:href="@{/autor/baja/__${autor.id}__}"><i class="fas fa-angle-double-down option-list"></i></a> 
+                                                            <a th:unless="${autor.alta}" th:href="@{/autor/alta/__${autor.id}__}"><i class="fas fa-angle-double-up option-list"></i></a>
+                                                            <a th:href="@{/autor/findOne/(id=${autor.id})}" class="deleteBtn"><i class="fas fa-ban option-list"style="color:red;"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>                                   
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!--</div>-->
+
+                                    <!--<div class="dataTables_paginate paging_bootstrap">
+                                        <ul th:if="${listProducts.totalPages > 0}" th:each="pageNumber : ${pageNumbers}"  class="pagination">
+                                            <li th:class="${pageNumber==listProducts.number + 1} ? active">
+                                                <a th:href="@{/product/list(search=${param.search},size=${listProducts.size}, page=${pageNumber})}"
+                                                   th:text=${pageNumber}>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>-->
+
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer">
+                                Footer contenido
+                            </div>
+                            <!-- /.card-footer-->
+                        </div>
+                   <div class="formulario">   
+
+                        <th:block th:replace="vista/autor/_modals :: modal('exampleModal')"  class="modaledit" >Cargar</th:block>
+                    
+                    </div>  
+                        <!-- /.card -->
+                        <!--     <th:block th:replace="vista/autor/_modals :: modal('exampleModal')"  class="modaledit" >Cargar</th:block>
+                        --> 
+                    </div>              
+                    
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

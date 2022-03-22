@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<!-- Modal          -->
+
+<div th:fragment="modal(id)" th:id="${id}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby= "exampleModalLabel"
+     aria-hidden="true">
+
+                        <div class="modal fade" id="exampleModal">
+                            <div class="editmodal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title tituloModal"id="tituloModal">Update</h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="myForm">
+                                                <form th:action="@{/autor/crear}" th:object="${autor}" method="POST" id="formAutor">
+
+                                                    <div class="form-group">  
+                                                        <input type="hidden" class="form-control" value="" name="id" id="id" >
+                                                    </div>
+                                                    <div class="modal-body">
+
+                                                        <div class="form-group formimput">                                        
+                                                            <label class="form-control-label" for="nombre">Nombre</label> 
+                                                            <input type="text" class="form-control" name="nombre" id="nombre" required="true" >
+                                                        </div>
+                                                        <div class="form-group formmsj">
+                                                            <p>Estas a punto de eliminar: <strong><span id="autorEliminar"></stron></p>
+                                                        </div>
+                                                        <div class="form-group">  
+                                                            <input type="hidden" class="form-control" value="" name="alta" id="alta" >
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="modal-footer btnFormularios">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                        <button type="submit" class="envBtn" id="btnEnv">Guardar</button>
+                                                    </div>
+                                                </form>
+
+                                            </div>                
+                                        </div>
+
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                        </div>  
+</div>
+
+</body>
+</html>

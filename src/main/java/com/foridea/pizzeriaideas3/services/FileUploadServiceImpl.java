@@ -1,5 +1,6 @@
 package com.foridea.pizzeriaideas3.services;
 
+import com.foridea.pizzeriaideas3.abstraction.FileUploadService;
 import com.foridea.pizzeriaideas3.entities.ImageProfile;
 import com.foridea.pizzeriaideas3.repositories.ImageRepository;
 import org.springframework.stereotype.Service;

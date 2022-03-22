@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+ 
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tienda</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link th:href="@{admin/css/css/all.min.css}" rel="stylesheet" href="/../admin/css/css/all.min.css">
+  <!--
+  <link rel="stylesheet" th:href="@{/dist/css/plugins/overlayScrollbars/css/OverlayScrollbars.min.css} " href="dist/css/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+   Theme style 
+-->  <link rel="stylesheet" th:href="@{admin/css/adminlte.min.css}" href="/../admin/css/adminlte.min.css"><!--
+  <script type="text/javascript" th:src="@{/dist/js/myjs.js}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="@{/dist/css/mystyle.css}" href="dist/css/mystyle.css">-->
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<!-- Site wrapper -->
+<div class="wrapper">
+  <!-- Navbar -->
+  <div th:replace="admin/fragment/topnav::navbar"></div>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+ 
+    <a href="../../index3.html" class="brand-link">
+      <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Tienda 3</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div th:replace="admin/fragment/sideuser::sideuser"</th>></div>
+
+
+
+      <!-- Sidebar Menu -->
+        <div th:replace="admin/fragment/navmenu::navmenu"></div>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div th:replace="admin/fragment/navpage::navpage"></div>    
+
+ 
+        <!-- Main content -->
+        <section class="content">
+
+            <div layout:fragment="content"></div>          
+           
+            
+            <th:block layout:fragment="scripts"></th:block>
+           
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    
+    
+    
+    
+    <!-- Main content -->
+  <!-- <div th:replace="fragment/content::content"></div>-->
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+ <div th:replace="admin/fragment/footer::footer"></div>
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+ 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- jQuery -->
+<<!-- overlayScrollbars -->
+<script th:src="@{../dist/css/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js}" src="../../dist/css/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script th:src="@{../dist/js/adminlte.min.js}" src="../../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+
+ 
+</body>
+</html>
